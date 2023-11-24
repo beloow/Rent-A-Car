@@ -1,0 +1,221 @@
+/*ffonctions proprietaire SASS: */
+/* du gris au noir*/
+/* du gris au blanc*/
+.ombre {
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.7);
+}
+
+/* class silencieuse (non utilisee dans le html) */
+.button-send {
+  box-shadow: 5px 5px 10px 1px rgb(0, 0, 0);
+}
+
+.align-horiz, #primary-nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+.icon::before {
+  display: block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+#primary-nav {
+  background: #4e984f;
+}
+#primary-nav ul a {
+  display: block;
+  padding: 20px;
+  color: #fff;
+}
+#primary-nav ul a:hover {
+  background: #4e984f;
+}
+
+/* mixin avec @content: possibilite de rajouter des proprietes dans son utulisation (@include) */
+.icon-cart::before {
+  content: "\f07a";
+  font: var(--fa-font-solid);
+}
+
+@keyframes frade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background: #FFF;
+}
+
+section {
+  min-height: 20vh;
+}
+
+header {
+  background-image: url("../assets/img/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 3%;
+  padding-bottom: 30%;
+  position: relative;
+}
+
+#container {
+  max-width: 1440px;
+}
+
+.formulaire form {
+  background-color: rgba(255, 255, 255, 0.418);
+}
+
+.btn--bg--color {
+  background-color: white;
+}
+
+.validation {
+  background-color: rgba(25, 135, 84, 0.7176470588);
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.button-send {
+  /* mixin */
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.25rem;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  display: block;
+  margin: 0.5rem auto 0;
+  width: 150px;
+  color: #fff;
+  background-color: #FFF;
+  color: #fff;
+  /* class silencieuse (non utilisee dans le html) */
+}
+.button-send:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #FFF;
+}
+
+.reveal-loaded .reveal [class*=reveal-] {
+  opacity: 0 !important;
+  animation: none !important;
+  transition: 0s !important;
+}
+
+.reveal-loaded [class*=reveal-] {
+  animation: revealAnimation 1s cubic-bezier(0.5, 0, 0, 1) both;
+}
+
+.reveal-loaded .reveal-2 {
+  animation-delay: 0.1s;
+}
+
+.reveal-loaded .reveal-3 {
+  animation-delay: 0.2s;
+}
+
+.reveal-loaded .reveal-4 {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-loaded [class*=reveal-] {
+    animation: none !important;
+  }
+}
+@keyframes revealAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+#mixin-content {
+  width: 50%;
+}
+#mixin-content h2 {
+  background: #4e984f;
+  color: #fff;
+}
+
+.icon-cart::before {
+  content: "\f07a";
+  font: var(--fa-font-solid);
+}
+
+.position-fixed-icon-bar {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+}
+
+.font-small {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+main section:nth-child(1) {
+  background: #68b169;
+  opacity: 0;
+}
+
+main section:nth-child(2) {
+  background: #89c38a;
+  opacity: 0;
+}
+
+main section:nth-child(3) {
+  background: #abd4ac;
+  opacity: 0;
+}
+
+main section:nth-child(4) {
+  background: #cde5cd;
+  opacity: 0;
+}
+
+main section:nth-child(1) {
+  animation: fade-in 0.7s ease-in-out 500ms forwards;
+}
+
+main section:nth-child(2) {
+  animation: fade-in 0.7s ease-in-out 1000ms forwards;
+}
+
+main section:nth-child(3) {
+  animation: fade-in 0.7s ease-in-out 1500ms forwards;
+}
+
+main section:nth-child(4) {
+  animation: fade-in 0.7s ease-in-out 2000ms forwards;
+}

@@ -1,0 +1,146 @@
+@use '_var' as v;
+@use 'parts/primary-nav';
+@use '_mixins' as m;
+@use '_class' as c;
+@use '_maps' as maps;
+@use '_anims' as a;
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: v.$main-color;
+}
+
+section {
+    min-height: 20vh;
+}
+
+header{
+    background-image: url("../assets/img/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding-top: 3%;
+    padding-bottom: 30%;
+
+    position: relative;
+}
+
+#container {
+    max-width: v.$width-container;
+}
+
+.formulaire form {
+    background-color: rgba(255, 255, 255, 0.418);
+}
+
+.btn--bg--color {
+    background-color: white;
+}
+
+.validation {
+    background-color: #198754b7;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.button-send {
+    /* mixin */
+    @include m.button;
+    background-color: v.$main-color;
+    color: v.$link-color;
+    /* class silencieuse (non utilisee dans le html) */
+    @extend %ombre;
+}
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0!important;
+    animation: none!important;
+    transition: 0s!important;
+  }
+  
+  .reveal-loaded [class*="reveal-"]{
+    animation: revealAnimation 1s cubic-bezier(.5, 0, 0, 1) both;
+  }
+  
+  .reveal-loaded .reveal-2 {
+    animation-delay: .1s;
+  }
+  
+  .reveal-loaded .reveal-3 {
+    animation-delay: .2s;
+  }
+  
+  .reveal-loaded .reveal-4 {
+    animation-delay: .3s;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-loaded  [class*="reveal-"] {
+      animation: none!important;
+    }
+  }
+  
+  @keyframes revealAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+@include m.inserer-bloc {
+    width: 50%;
+    ;
+
+    h2 {
+        background: v.$link-background;
+        color: #fff
+    }
+}
+
+@include m.icon-fontawesome("cart", "\f07a", "--fa-font-solid");
+
+@include m.position-fixed("icon-bar", "top", 60px, "right", 50px);
+
+.font-small {
+    @if map-has-key(maps.$fonts, small){
+        font-size: map-get(maps.$fonts, small);
+    } @else {
+        font-size: 12px;
+    }
+}
+
+h1 {
+    font-size: map-get(maps.$fonts, h1);
+}
+
+h2 {
+    font-size: map-get(maps.$fonts, h2);
+}
+
+// Boucle @For
+@for $i from 1 through 4 {
+    main section:nth-child(#{$i}){
+        background: lighten(v.$title-color, $i * 10%);
+        opacity: 0;
+    }
+}
+
+@for $i from 1 through 4 {
+    main section:nth-child(#{$i}){
+        //variable local
+        $delay: $i * 500ms;
+        animation: fade-in .7s ease-in-out $delay forwards;
+    }
+}
